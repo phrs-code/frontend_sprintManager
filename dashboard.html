@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskInsight | Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="dashboard-page">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">✓</div>
+      <div>
+        <h2>TaskInsight</h2>
+        <span>Admin Workspace</span>
+      </div>
+    </div>
+
+    <div class="admin-profile">
+      <div class="avatar">AD</div>
+      <div>
+        <strong>Admin TaskInsight</strong>
+        <small>admin@taskinsight.com</small>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="#" class="active">Dashboard</a>
+      <a href="#">Tarefas</a>
+      <a href="#">Relatórios</a>
+      <a href="#">Usuários</a>
+    </nav>
+
+    <a href="./login.html" class="logout">Sair da Sessão</a>
+  </aside>
+
+  <main class="dashboard-content">
+    <header class="topbar">
+      <div>
+        <h1>Olá, Diretoria TaskInsight</h1>
+        <p>Gerenciador de atividades e monitor de rendimento</p>
+      </div>
+
+      <div class="topbar-info">
+        <span>09/06/2026</span>
+        <strong>● Servidor ativo</strong>
+      </div>
+    </header>
+
+    <section class="metrics-grid">
+      <article class="dashboard-card">
+        <span>Total de tarefas</span>
+        <h2>4</h2>
+      </article>
+
+      <article class="dashboard-card">
+        <span>Pendentes</span>
+        <h2>2</h2>
+      </article>
+
+      <article class="dashboard-card">
+        <span>Em andamento</span>
+        <h2>1</h2>
+      </article>
+
+      <article class="dashboard-card">
+        <span>Concluídas</span>
+        <h2>1</h2>
+      </article>
+    </section>
+
+    <section class="tasks-section">
+      <div class="tasks-toolbar">
+        <input type="text" placeholder="Buscar tarefa por título ou descrição..." />
+
+        <div class="filters">
+          <button class="active">Todos</button>
+          <button>Pendentes</button>
+          <button>Andamento</button>
+          <button>Concluídos</button>
+        </div>
+
+        <button class="new-task-btn">+ Nova Tarefa</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="tasks-table">
+          <thead>
+            <tr>
+              <th>Tarefa</th>
+              <th>Categoria</th>
+              <th>Prioridade</th>
+              <th>Data limite</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <strong>Auditar permissões de chaves JWT de produção</strong>
+                <small>Garantir que as regras de segurança estejam corretas.</small>
+              </td>
+              <td><span class="tag">Desenvolvimento</span></td>
+              <td><span class="priority high">Alta</span></td>
+              <td>10/06/2026</td>
+              <td><span class="status pending">Pendente</span></td>
+              <td>✏️ 🗑️</td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Mapear fluxos da dashboard</strong>
+                <small>Elaborar wireframes para a nova tela administrativa.</small>
+              </td>
+              <td><span class="tag">Design UX</span></td>
+              <td><span class="priority medium">Média</span></td>
+              <td>15/06/2026</td>
+              <td><span class="status progress">Em andamento</span></td>
+              <td>✏️ 🗑️</td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Conferir faturamento financeiro</strong>
+                <small>Verificar pagamentos retidos e notas administrativas.</small>
+              </td>
+              <td><span class="tag">Financeiro</span></td>
+              <td><span class="priority high">Alta</span></td>
+              <td>05/06/2026</td>
+              <td><span class="status done">Concluída</span></td>
+              <td>✏️ 🗑️</td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Configurar campanhas de tráfego pago</strong>
+                <small>Definir públicos-alvo e limites orçamentários.</small>
+              </td>
+              <td><span class="tag">Marketing</span></td>
+              <td><span class="priority low">Baixa</span></td>
+              <td>20/06/2026</td>
+              <td><span class="status pending">Pendente</span></td>
+              <td>✏️ 🗑️</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

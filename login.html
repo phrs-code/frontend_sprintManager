@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskInsight | Login</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="login-page">
+  <main class="login-container">
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="login-icon" aria-hidden="true">✓</div>
+
+      <h1 id="login-title">TaskInsight</h1>
+      <p class="subtitle">PAINEL ADMINISTRATIVO</p>
+      <p class="welcome-text">
+        Organize tarefas, acompanhe métricas e aumente sua produtividade.
+      </p>
+
+      <div class="test-box">
+        <span aria-hidden="true">ⓘ</span>
+        <p>
+          <strong>Ambiente de Testes:</strong>
+          Use seu e-mail corporativo e senha de acesso.
+        </p>
+      </div>
+
+      <form class="login-form" id="loginForm">
+        <label for="email">E-MAIL CORPORATIVO</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="seu.email@empresa.com"
+          autocomplete="email"
+        />
+
+        <div class="password-row">
+          <label for="password">SENHA DE ACESSO</label>
+          <a href="#">Esqueci minha senha</a>
+        </div>
+
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Sua senha corporativa"
+          autocomplete="current-password"
+        />
+
+        <label class="remember">
+          <input type="checkbox" id="remember" />
+          <span>Lembrar-me neste dispositivo</span>
+        </label>
+
+        <p class="error-message" id="error-message" aria-live="polite"></p>
+
+        <button type="submit">
+          Entrar no Sistema
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <span>Deseja gerenciar seu time?</span>
+        <a href="#">Criar nova conta admin</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
