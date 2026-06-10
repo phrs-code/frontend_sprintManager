@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SprintManager | Cadastro</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="registration-page">
+    <main class="registration-container">
+        <section class="registration-card" aria-labelledby="registration-title">
+            <div class="login-icon" aria-hidden="true">✓</div>
+
+            <h1 id="registration-title">SprintManager</h1>
+            <p class="subtitle">PAINEL ADMINISTRATIVO</p>
+            <p class="welcome-text">
+                Organize tarefas, acompanhe métricas e aumente sua produtividade.
+            </p>
+
+            <form class="registration-form" id="registrationForm">
+                <h2>Cadastro</h2>
+                
+                <label for="username">NOME DE USUÁRIO</label>
+                <input 
+                  id="username" 
+                  name="username" 
+                  type="text" 
+                  placeholder="Nome de usuário" 
+                  autocomplete="username"
+                />
+
+                <label for="registration-email">E-MAIL CORPORATIVO</label>
+                <input 
+                  id="registration-email" 
+                  name="email" 
+                  type="email" 
+                  placeholder="seu.email@empresa.com" 
+                  autocomplete="email"
+                />
+                
+                <label for="registration-password">CRIAR SENHA</label>
+                <input 
+                  id="registration-password" 
+                  name="password" 
+                  type="password" 
+                  placeholder="Senha" 
+                  autocomplete="new-password"
+                />
+
+                <label for="registration-confirm-password">REPETIR SENHA</label>
+                <input 
+                  id="registration-confirm-password" 
+                  name="confirm_password" 
+                  type="password" 
+                  placeholder="Repetir senha" 
+                  autocomplete="new-password"
+                />
+
+                <p class="error-message" id="registration-error-message" aria-live="polite"></p>
+
+                <button type="submit">
+                  CADASTRAR CONTA 
+                  <span aria-hidden="true">→</span>
+                </button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

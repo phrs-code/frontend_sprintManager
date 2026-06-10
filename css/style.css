@@ -42,7 +42,7 @@ a {
     line-height:1.5;
 }
 
-.login-page {
+.login-page, .registration-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -52,12 +52,12 @@ a {
     linear-gradient(135deg, #fff8fb, #fdf4f7);
 }
 
-.login-container {
+.login-container, .registration-container {
   width: 100%;
   padding: 24px;
 }
 
-.login-card {
+.login-card, .registration-card {
   width: 100%;
   max-width: 500px;
   padding: 24px 28px;
@@ -82,11 +82,19 @@ a {
   font-weight: 900;
 }
 
-.login-card h1 {
+.login-card h1, .registration-card h1 {
   text-align: center;
   color: var(--text-dark);
   font-size: 36px;
   font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.registration-card h2 {
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 24px;
+  font-weight: 700;
   margin-bottom: 6px;
 }
 
@@ -112,13 +120,14 @@ a {
   margin-bottom:14px;
 }
 
-.login-form {
+.login-form, .registration-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
 .login-form label,
+.registration-form label,
 .password-row label {
   font-size: 12px;
   font-weight: 900;
@@ -137,7 +146,10 @@ a {
 }
 
 .login-form input[type="email"],
-.login-form input[type="password"] {
+.login-form input[type="password"],
+.registration-form input[type="email"],
+.registration-form input[type="password"],
+.registration-form input[type="text"] {
   width: 100%;
   height: 48px;
   border: 1px solid var(--gray-200);
@@ -168,7 +180,7 @@ a {
   font-size: 13px;
 }
 
-.login-form button {
+.login-form button, .registration-form button {
   border: none;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--pink-mid), var(--pink-dark));
@@ -180,7 +192,7 @@ a {
   box-shadow: 0 12px 24px rgba(183, 110, 121, 0.28);
 }
 
-.login-form button:hover {
+.login-form button:hover, .registration-form button:hover {
   background: linear-gradient(135deg, var(--pink-hover), var(--pink-dark));
 }
 
