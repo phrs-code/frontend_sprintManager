@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintManager | Criar/Editar Tarefa</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="create-edit-task-page">
+  <main class="create-edit-task-container">
+    <section class="create-edit-task-card" aria-labelledby="create-edit-task-title">
+      <div class="create-edit-task-icon" aria-hidden="true">✓</div>
+
+      <h1 id="create-edit-task-title">Criação e Edição de Tarefas</h1>
+
+      <form class="create-edit-task-form" id="createEditTaskForm">
+        <label for="taskTitle">TÍTULO DA TAREFA</label>
+        <input
+          id="taskTitle"
+          name="taskTitle"
+          type="text"
+          placeholder="Digite o título da tarefa"
+          autocomplete="off"
+        />
+        <label for="taskDescription">DESCRIÇÃO DA TAREFA</label>
+        <textarea
+          id="taskDescription"
+          name="taskDescription"
+          placeholder="Descreva os detalhes da tarefa"
+          autocomplete="off"
+        ></textarea>
+
+        <label for="taskDate">DATA DA TAREFA</label>
+        <input
+          id="taskDate"
+          name="taskDate"
+          type="date"
+          placeholder="Digite a data da tarefa"
+          autocomplete="off"
+        />
+
+        <label for="status">Status da tarefa:</label>
+        <select name="status" id="status">
+          <option value="concluida">Concluída</option>
+          <option value="pendente">Pendente</option>
+          <option value="andamento">Em andamento</option>
+        </select>
+
+        <label for="category">Categoria da tarefa:</label>
+        <select name="category" id="category">
+          <option value="Acessibilidade Digital">Acessibilidade Digital</option>
+          <option value="Adaptacao de Ambiente Fisica">Adaptação de Ambiente Física</option>
+          <option value="Capacitacao de Equipes">Capacitação de Equipes</option>
+          <option value="Comunicacao Inclusiva">Comunicação Inclusiva</option>
+          <option value="Inclusao na Empregabilidade">Inclusão na Empregabilidade</option>
+          <option value="Plataforma Interna">Plataforma Interna</option>
+          <option value="Tecnologia Assistiva">Tecnologia Assistiva</option>
+        </select>
+
+
+        <label for="priority">Prioridade da tarefa:</label>
+        <select name="priority" id="priority">
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta">Alta</option>
+        </select>
+
+
+        <div class="save-clear-button-row">
+          <button id="saveButton" type="submit">
+            Salvar
+          </button>
+
+          <button id="clearButton" type="button">
+            Limpar
+          </button>
+
+        </div>
+
+
+        <p class="error-message" id="error-message" aria-live="polite"></p>
+
+      </form>
+
+    </section>
+  </main>
+</body>
+</html>
