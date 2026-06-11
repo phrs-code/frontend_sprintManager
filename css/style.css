@@ -149,6 +149,7 @@ a {
 .login-form input[type="password"],
 .registration-form input[type="email"],
 .registration-form input[type="password"],
+.registration-form input[type="number"],
 .registration-form input[type="text"] {
   width: 100%;
   height: 48px;
