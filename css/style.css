@@ -515,6 +515,24 @@ a {
   line-height: 1.3;
 }
 
+#loadMoreContainer {
+  text-align: center;
+  padding: 20px;
+  display: none; 
+}
+
+#loadMoreBtn {
+  background: var(--white);
+  color: var(--pink-dark);
+  border: 2px solid var(--pink-dark);
+  transition: all 0.3s ease; /* Transição suave para o hover */
+}
+
+#loadMoreBtn:hover {
+  background: var(--pink-extra);
+  box-shadow: 0 4px 12px rgba(183, 110, 121, 0.15);
+}
+
 .tag,
 .priority,
 .status {

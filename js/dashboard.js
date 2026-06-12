@@ -69,8 +69,6 @@ function getStatusClass(status = "") {
   return "";
 }
 
-// Nova função renderTasks ajustada para a estrutura de Tabela
-// Função renderTasks refatorada
 function renderTasks() {
   taskList.innerHTML = "";
 
@@ -102,7 +100,10 @@ function renderTasks() {
       <td><span class="priority ${getPriorityClass(priority)}">${priority}</span></td>
       <td>${deadline}</td>
       <td><span class="status ${getStatusClass(status)}">${status}</span></td>
-      <td style="cursor: pointer; opacity: 0.7;">✏️ 🗑️</td>
+      <td style="font-size: 16px;">
+        <a href="./update_task.html?id=${task._id || task.id}" style="text-decoration: none; margin-right: 12px; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" title="Editar Tarefa">✏️</a>
+        
+        <span onclick="deleteTask('${task._id || task.id}')" style="cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" title="Excluir Tarefa">🗑️</span>
     `;
 
     taskList.appendChild(tr);
@@ -159,7 +160,7 @@ if (searchInput) {
   searchInput.addEventListener("input", applyFilters);
 }
 
-// 2. Aciona o filtro toda vez que um botão for clicado
+// Aciona o filtro toda vez que um botão for clicado
 filterButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     // Remove a classe 'active' de todos os botões
@@ -172,6 +173,41 @@ filterButtons.forEach((button) => {
     applyFilters();
   });
 });
+
+// Função global para deletar a tarefa conectada ao tasks.routes.js
+async function deleteTask(taskId) {
+  // 1. O Alerta de Confirmação (UX)
+  const isConfirmed = confirm("Tem certeza que deseja excluir esta tarefa? Esta ação não pode ser desfeita.");
+
+  // Se o usuário clicar em "Cancelar/Não", a função para aqui e ele volta para a tabela.
+  if (!isConfirmed) {
+    return;
+  }
+
+  // 2. Requisição para a API (Back-end)
+  try {
+    const response = await fetch(`${API_URL}/tasks/${taskId}`, {
+      method: "DELETE", // Aciona a rota routes.delete('/tasks/:id', ...)
+      headers: {
+        Authorization: `Bearer ${token}` // Middleware verifyAuthenticate valida isso
+      }
+    });
+
+    // 3. Tratamento da Resposta baseada no tasks.controllers.js
+    if (response.status === 204 || response.ok) {
+      alert("Tarefa excluída com sucesso!");
+      
+      // Atualiza a tela automaticamente para refletir o banco de dados
+      loadTasks(); 
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Falha ao excluir a tarefa.");
+    }
+  } catch (error) {
+    console.error("Erro ao deletar:", error);
+    alert(`Ocorreu um erro: ${error.message}`);
+  }
+}
 
 async function loadTasks() {
   try {
