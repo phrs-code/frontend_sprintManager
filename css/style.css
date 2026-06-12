@@ -42,7 +42,7 @@ a {
     line-height:1.5;
 }
 
-.login-page, .registration-page {
+.login-page, .registration-page, .create-edit-task-form-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -52,12 +52,12 @@ a {
     linear-gradient(135deg, #fff8fb, #fdf4f7);
 }
 
-.login-container, .registration-container {
+.login-container, .registration-container, .create-edit-task-form-container {
   width: 100%;
   padding: 24px;
 }
 
-.login-card, .registration-card {
+.login-card, .registration-card, .create-edit-task-form-card {
   width: 100%;
   max-width: 500px;
   padding: 24px 28px;
@@ -82,7 +82,7 @@ a {
   font-weight: 900;
 }
 
-.login-card h1, .registration-card h1 {
+.login-card h1, .registration-card h1, .create-edit-task-form h1 {
   text-align: center;
   color: var(--text-dark);
   font-size: 36px;
@@ -120,7 +120,7 @@ a {
   margin-bottom:14px;
 }
 
-.login-form, .registration-form {
+.login-form, .registration-form, .create-edit-task-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -128,6 +128,7 @@ a {
 
 .login-form label,
 .registration-form label,
+.create-edit-task-form label,
 .password-row label {
   font-size: 12px;
   font-weight: 900;
@@ -150,7 +151,10 @@ a {
 .registration-form input[type="email"],
 .registration-form input[type="password"],
 .registration-form input[type="number"],
-.registration-form input[type="text"] {
+.registration-form input[type="text"],
+.create-edit-task-form input[type="text"],
+.create-edit-task-form textarea,
+.create-edit-task-form select {
   width: 100%;
   height: 48px;
   border: 1px solid var(--gray-200);
@@ -181,7 +185,7 @@ a {
   font-size: 13px;
 }
 
-.login-form button, .registration-form button {
+.login-form button, .registration-form button, .create-edit-task-form button {
   border: none;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--pink-mid), var(--pink-dark));
@@ -193,7 +197,7 @@ a {
   box-shadow: 0 12px 24px rgba(183, 110, 121, 0.28);
 }
 
-.login-form button:hover, .registration-form button:hover {
+.login-form button:hover, .registration-form button:hover, .create-edit-task-form button:hover {
   background: linear-gradient(135deg, var(--pink-hover), var(--pink-dark));
 }
 
