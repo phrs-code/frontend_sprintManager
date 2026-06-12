@@ -42,7 +42,7 @@ a {
     line-height:1.5;
 }
 
-.login-page, .registration-page, .create-edit-task-form-page {
+.login-page, .registration-page, .create-edit-task-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -52,12 +52,12 @@ a {
     linear-gradient(135deg, #fff8fb, #fdf4f7);
 }
 
-.login-container, .registration-container, .create-edit-task-form-container {
+.login-container, .registration-container, .create-edit-task-container {
   width: 100%;
   padding: 24px;
 }
 
-.login-card, .registration-card, .create-edit-task-form-card {
+.login-card, .registration-card, .create-edit-task-card {
   width: 100%;
   max-width: 500px;
   padding: 24px 28px;
@@ -69,7 +69,7 @@ a {
   box-shadow: var(--shadow);
 }
 
-.login-icon {
+.login-icon, .create-edit-task-icon {
   width: 52px;
   height: 52px;
   margin: 0 auto 20px;
