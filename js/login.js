@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const API_URL = "http://localhost:5000";
 
         try {
-            const response = await fetch(API_URL, {
+            const response = await fetch(`${API_URL}/authenticate`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
