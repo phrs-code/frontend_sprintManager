@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Login efetuado com sucesso!', data);
                 
                 if (data.token) {
-                    localStorage.setItem('authToken', data.token);
+                    localStorage.setItem('token', data.token);
                 }
                 
                 alert('Login realizado com sucesso!');
