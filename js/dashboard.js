@@ -165,10 +165,10 @@ filterButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     // Remove a classe 'active' de todos os botões
     filterButtons.forEach((btn) => btn.classList.remove("active"));
-    
+
     // Adiciona a classe 'active' apenas no botão que foi clicado
     e.target.classList.add("active");
-    
+
     // Roda a lógica de filtro (que também reseta a paginação)
     applyFilters();
   });
@@ -196,9 +196,9 @@ async function deleteTask(taskId) {
     // 3. Tratamento da Resposta baseada no tasks.controllers.js
     if (response.status === 204 || response.ok) {
       alert("Tarefa excluída com sucesso!");
-      
+
       // Atualiza a tela automaticamente para refletir o banco de dados
-      loadTasks(); 
+      loadTasks();
     } else {
       const errorData = await response.json();
       throw new Error(errorData.message || "Falha ao excluir a tarefa.");
@@ -235,6 +235,39 @@ async function loadTasks() {
     console.error("Erro ao carregar tarefas:", error);
     taskList.innerHTML = '<p class="empty-message">Não foi possível carregar as tarefas. Verifique se o backend está rodando.</p>';
   }
+
+  const openTaskDrawer = document.getElementById("openTaskDrawer");
+  const closeTaskDrawer = document.getElementById("closeTaskDrawer");
+  const cancelTaskDrawer = document.getElementById("cancelTaskDrawer");
+  const taskDrawer = document.getElementById("taskDrawer");
+  const drawerOverlay = document.getElementById("drawerOverlay");
+  const drawerTaskForm = document.getElementById("drawerTaskForm");
+
+  function openDrawer() {
+    taskDrawer.classList.add("open");
+    drawerOverlay.classList.add("open");
+    taskDrawer.setAttribute("aria-hidden", "false");
+  }
+
+  function closeDrawer() {
+    taskDrawer.classList.remove("open");
+    drawerOverlay.classList.remove("open");
+    taskDrawer.setAttribute("aria-hidden", "true");
+  }
+
+  openTaskDrawer.addEventListener("click", openDrawer);
+  closeTaskDrawer.addEventListener("click", closeDrawer);
+  cancelTaskDrawer.addEventListener("click", closeDrawer);
+  drawerOverlay.addEventListener("click", closeDrawer);
+
+  drawerTaskForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    console.log("Salvar nova tarefa");
+
+    drawerTaskForm.reset();
+    closeDrawer();
+  });
 }
 
 loadTasks();

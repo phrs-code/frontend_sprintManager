@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,59 +14,51 @@
       <a href="dashboard.html" class="close-button" aria-label="Voltar ao Dashboard">&times;</a>
       <div class="create-edit-task-icon" aria-hidden="true">✓</div>
 
-      <h1 id="create-edit-task-title">Criação de Tarefas</h1>
+      <h1 id="create-edit-task-title">Nova Tarefa</h1>
 
       <form class="create-edit-task-form" id="createEditTaskForm">
         <label for="taskTitle">TÍTULO DA TAREFA</label>
-        <input
-          id="taskTitle"
-          name="taskTitle"
-          type="text"
-          placeholder="Digite o título da tarefa"
-          autocomplete="off"
-        />
+        <input id="taskTitle" name="taskTitle" type="text" placeholder="Digite o título da tarefa" autocomplete="off" />
         <label for="taskDescription">DESCRIÇÃO DA TAREFA</label>
-        <textarea
-          id="taskDescription"
-          name="taskDescription"
-          placeholder="Descreva os detalhes da tarefa"
-          autocomplete="off"
-        ></textarea>
+        <textarea id="taskDescription" name="taskDescription" placeholder="Descreva os detalhes da tarefa"
+          autocomplete="off"></textarea>
 
-        <label for="status">Status da tarefa:</label>
+        <label for="status">STATUS</label>
         <select name="status" id="status">
-          <option value="concluida">Concluída</option>
-          <option value="pendente">Pendente</option>
-          <option value="andamento">Em andamento</option>
+            <option value="concluida">Pendente</option>
+             <option value="pendente">Em andamento</option>
+             <option value="andamento">Concluída</option>
         </select>
 
-        <label for="category">Categoria da tarefa:</label>
+        <label for="category">CATEGORIA</label>
         <select name="category" id="category">
-          <option value="Acessibilidade Digital">Acessibilidade Digital</option>
-          <option value="Adaptacao de Ambiente Fisica">Adaptação de Ambiente Física</option>
-          <option value="Capacitacao de Equipes">Capacitação de Equipes</option>
-          <option value="Comunicacao Inclusiva">Comunicação Inclusiva</option>
-          <option value="Inclusao na Empregabilidade">Inclusão na Empregabilidade</option>
-          <option value="Plataforma Interna">Plataforma Interna</option>
-          <option value="Tecnologia Assistiva">Tecnologia Assistiva</option>
+          <option value="Desenvolvimento">Desenvolvimento</option>
+          <option value="Design UX">Design UX</option>
+          <option value="Financeiro">Financeiro</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Dados">Dados</option>
         </select>
 
 
-        <label for="priority">Prioridade da tarefa:</label>
+        <label for="priority">PRIORIDADE</label>
         <select name="priority" id="priority">
-          <option value="baixa">Baixa</option>
-          <option value="media">Média</option>
-          <option value="alta">Alta</option>
+            <option value="baixa">Baixa</option>
+             <option value="media">Média</option>
+             <option value="alta">Alta</option>
         </select>
+
+        <label for="deadline">DATA LIMITE</label>
+        <input id="deadline" name="deadline" type="date" />
 
 
         <div class="save-clear-button-row">
-          <button id="saveButton" type="submit">
-            Salvar
+
+          <button id="cancelButton" type="button" onclick="window.location.href='dashboard.html'">
+            Cancelar
           </button>
 
-          <button id="clearButton" type="button">
-            Limpar
+          <button id="saveButton" type="submit">
+            Salvar
           </button>
 
         </div>
@@ -80,4 +73,5 @@
 
   <script src="js/create_edit_task.js"></script>
 </body>
+
 </html>

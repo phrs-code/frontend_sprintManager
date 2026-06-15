@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -81,7 +82,9 @@
           <button>Concluídos</button>
         </div>
 
-        <a href="./create_edit_task.html" class="new-task-btn">+ Nova Tarefa</a>
+        <button class="new-task-btn" id="openTaskDrawer" type="button">
+          + Nova Tarefa
+        </button>
       </div>
 
       <div class="table-wrapper">
@@ -108,6 +111,73 @@
     </section>
   </main>
 
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <aside class="task-drawer" id="taskDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <h2>Nova Tarefa</h2>
+        <p>Preencha os dados da atividade de trabalho</p>
+      </div>
+
+      <button class="drawer-close" id="closeTaskDrawer" type="button">
+        ×
+      </button>
+    </div>
+
+    <form class="drawer-form" id="drawerTaskForm">
+      <label for="drawerTaskTitle">TÍTULO DA TAREFA</label>
+      <input id="drawerTaskTitle" type="text" placeholder="Ex: Enviar protótipos de alta fidelidade" />
+
+      <label for="drawerCategory">CATEGORIA</label>
+      <select id="drawerCategory">
+        <option value="Desenvolvimento">Desenvolvimento</option>
+        <option value="Design UX">Design UX</option>
+        <option value="Financeiro">Financeiro</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Dados">Dados</option>
+      </select>
+
+      <div class="drawer-row">
+        <div>
+          <label for="drawerPriority">PRIORIDADE</label>
+          <select id="drawerPriority">
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+            <option value="baixa">Baixa</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="drawerDeadline">DATA LIMITE</label>
+          <input id="drawerDeadline" type="date" />
+        </div>
+      </div>
+
+      <label for="drawerStatus">STATUS INICIAL</label>
+      <select id="drawerStatus">
+        <option value="pendente">Pendente</option>
+        <option value="andamento">Em andamento</option>
+        <option value="concluida">Concluída</option>
+      </select>
+
+      <label for="drawerDescription">DESCRIÇÃO / ESCOPO</label>
+      <textarea id="drawerDescription"
+        placeholder="Explique as metas que devem ser entregues para essa tarefa..."></textarea>
+
+      <div class="drawer-actions">
+        <button type="button" id="cancelTaskDrawer" class="drawer-cancel">
+          Cancelar
+        </button>
+
+        <button type="submit" class="drawer-save">
+          Salvar ✓
+        </button>
+      </div>
+    </form>
+  </aside>
+
   <script src="js/dashboard.js"></script>
 </body>
+
 </html>

@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 alert('Login realizado com sucesso!');
-                window.location.href = '/dashboard.html';
+                window.location.href = 'dashboard.html';
                 
             } else {
                 const errorData = await response.json();
