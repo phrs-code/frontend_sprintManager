@@ -460,6 +460,13 @@ body.light-theme.create-edit-task-page {
   font-size: 30px;
 }
 
+.report-text {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
 .tasks-section {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -889,4 +896,129 @@ body.light-theme.create-edit-task-page {
   .save-clear-button-row {
     grid-template-columns: 1fr;
   }
+}
+.insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.tasks-section {
+    background: #111c35;
+    border: 1px solid #22345c;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.tasks-section h2 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.tasks-section canvas {
+    width: 100% !important;
+    height: 300px !important;
+}
+
+.percent-card {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.percent-card strong {
+    font-size: 64px;
+    color: #ff7a18;
+}
+
+.percent-card p {
+    color: #a9b4d0;
+}
+
+.report-section {
+  margin-top: 28px;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.report-header p {
+  color: var(--text-soft);
+  margin-top: 6px;
+}
+
+.report-summary {
+  margin-top: 24px;
+  display: grid;
+  gap: 14px;
+  color: var(--text-main);
+  font-size: 15px;
+}
+
+.report-summary strong {
+  color: var(--orange);
+}
+
+@media print {
+  .sidebar,
+  .topbar-info,
+  #exportPdfBtn {
+    display: none;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  .dashboard-card,
+  .tasks-section {
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #cccccc;
+    box-shadow: none;
+  }
+}
+
+.progress-report {
+  width: 100%;
+  height: 12px;
+  background: #1a2744;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+#progressBar {
+  height: 100%;
+  width: 67%;
+  background: #ff7a00;
+}
+
+#progressText {
+    color: var(--orange);
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+#reportTopCategory {
+    font-size: 18px !important;
+}
+
+#reportTopPriority {
+    font-size: 24px !important;
 }

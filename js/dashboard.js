@@ -51,8 +51,6 @@ function updateMetrics(tasks) {
   progressTasks.textContent = andamento;
   doneTasks.textContent = concluidas;
 }
-
-// Função auxiliar para definir a cor da prioridade com base no texto
 function getPriorityClass(priority = "") {
   const p = priority.toLowerCase();
   if (p.includes("alta")) return "high";
@@ -60,7 +58,6 @@ function getPriorityClass(priority = "") {
   return "low";
 }
 
-// Função auxiliar para definir a cor do status com base no texto
 function getStatusClass(status = "") {
   const s = normalizeStatus(status);
   if (s.includes("pendente")) return "pending";
@@ -78,7 +75,6 @@ function renderTasks() {
     return;
   }
 
-  // Pega apenas a "fatia" de tarefas até o limite atual
   const tasksToShow = currentFilteredTasks.slice(0, visibleTasksCount);
 
   tasksToShow.forEach((task) => {
@@ -109,7 +105,7 @@ function renderTasks() {
     taskList.appendChild(tr);
   });
 
-  // Mostra ou esconde o botão de "Carregar Mais"
+
   if (currentFilteredTasks.length > visibleTasksCount) {
     loadMoreContainer.style.display = "block";
   } else {
@@ -117,7 +113,6 @@ function renderTasks() {
   }
 }
 
-// Cérebro unificado de filtros
 function applyFilters() {
   const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
   const activeButton = document.querySelector(".filters button.active");
@@ -143,16 +138,15 @@ function applyFilters() {
     return matchesStatus && matchesText;
   });
 
-  // Toda vez que o filtro muda, voltamos a mostrar apenas 3
   visibleTasksCount = 3;
   renderTasks();
 }
 
-// Evento do botão Carregar Mais
+
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener("click", () => {
-    visibleTasksCount += 3; // Aumenta o limite em 3
-    renderTasks(); // Renderiza novamente com o novo limite
+    visibleTasksCount += 3;
+    renderTasks();
   });
 }
 
@@ -160,44 +154,39 @@ if (searchInput) {
   searchInput.addEventListener("input", applyFilters);
 }
 
-// Aciona o filtro toda vez que um botão for clicado
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    // Remove a classe 'active' de todos os botões
+
     filterButtons.forEach((btn) => btn.classList.remove("active"));
 
-    // Adiciona a classe 'active' apenas no botão que foi clicado
     e.target.classList.add("active");
 
-    // Roda a lógica de filtro (que também reseta a paginação)
     applyFilters();
   });
 });
 
-// Função global para deletar a tarefa conectada ao tasks.routes.js
+
 async function deleteTask(taskId) {
-  // 1. O Alerta de Confirmação (UX)
+
   const isConfirmed = confirm("Tem certeza que deseja excluir esta tarefa? Esta ação não pode ser desfeita.");
 
-  // Se o usuário clicar em "Cancelar/Não", a função para aqui e ele volta para a tabela.
   if (!isConfirmed) {
     return;
   }
 
-  // 2. Requisição para a API (Back-end)
   try {
     const response = await fetch(`${API_URL}/tasks/${taskId}`, {
-      method: "DELETE", // Aciona a rota routes.delete('/tasks/:id', ...)
+      method: "DELETE",
       headers: {
-        Authorization: `Bearer ${token}` // Middleware verifyAuthenticate valida isso
+        Authorization: `Bearer ${token}`
       }
     });
 
-    // 3. Tratamento da Resposta baseada no tasks.controllers.js
     if (response.status === 204 || response.ok) {
       alert("Tarefa excluída com sucesso!");
 
-      // Atualiza a tela automaticamente para refletir o banco de dados
+
       loadTasks();
     } else {
       const errorData = await response.json();
@@ -228,7 +217,7 @@ async function loadTasks() {
     }
 
     const tasks = await response.json();
-    allTasks = tasks; // Armazena as tarefas localmente para facilitar o filtro
+    allTasks = tasks;
     updateMetrics(tasks);
     applyFilters();
   } catch (error) {
@@ -260,13 +249,63 @@ async function loadTasks() {
   cancelTaskDrawer.addEventListener("click", closeDrawer);
   drawerOverlay.addEventListener("click", closeDrawer);
 
-  drawerTaskForm.addEventListener("submit", function (event) {
+  drawerTaskForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    console.log("Salvar nova tarefa");
+    const saveButton = drawerTaskForm.querySelector(".drawer-save");
 
-    drawerTaskForm.reset();
-    closeDrawer();
+    saveButton.disabled = true;
+    saveButton.textContent = "Salvando...";
+
+    const taskData = {
+      titulo: document.getElementById("drawerTaskTitle").value.trim(),
+      descricao: document.getElementById("drawerDescription").value.trim(),
+      categoria: document.getElementById("drawerCategory").value,
+      prioridade: document.getElementById("drawerPriority").value,
+      status: document.getElementById("drawerStatus").value,
+      data_limite: document.getElementById("drawerDeadline").value,
+    };
+
+    if (
+      !taskData.titulo ||
+      !taskData.descricao ||
+      !taskData.categoria ||
+      !taskData.prioridade ||
+      !taskData.status
+    ) {
+      alert("Preencha todos os campos obrigatórios.");
+      saveButton.disabled = false;
+      saveButton.textContent = "Salvar ✓";
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_URL}/tasks`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(taskData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Erro ao criar tarefa.");
+      }
+
+      drawerTaskForm.reset();
+      closeDrawer();
+      await loadTasks();
+
+      alert("Tarefa criada com sucesso!");
+    } catch (error) {
+      console.error("Erro ao criar tarefa:", error);
+      alert(`Erro ao criar tarefa: ${error.message}`);
+    } finally {
+      saveButton.disabled = false;
+      saveButton.textContent = "Salvar ✓";
+    }
   });
 }
 

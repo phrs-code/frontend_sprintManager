@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,27 +11,18 @@
 <body class="create-edit-task-page">
   <main class="create-edit-task-container">
     <section class="create-edit-task-card" aria-labelledby="create-edit-task-title">
-      
+
       <a href="dashboard.html" class="close-button" aria-label="Voltar ao Dashboard">&times;</a>
-      <div class="create-edit-task-icon" aria-hidden="true">✎</div> <h1 id="create-edit-task-title">Editar Tarefa</h1>
+      <div class="create-edit-task-icon" aria-hidden="true">✎</div>
+      <h1 id="create-edit-task-title">Editar Tarefa</h1>
 
       <form class="create-edit-task-form" id="editTaskForm">
         <label for="taskTitle">TÍTULO DA TAREFA</label>
-        <input
-          id="taskTitle"
-          name="taskTitle"
-          type="text"
-          placeholder="Digite o título da tarefa"
-          autocomplete="off"
-        />
-        
+        <input id="taskTitle" name="taskTitle" type="text" placeholder="Digite o título da tarefa" autocomplete="off" />
+
         <label for="taskDescription">DESCRIÇÃO DA TAREFA</label>
-        <textarea
-          id="taskDescription"
-          name="taskDescription"
-          placeholder="Descreva os detalhes da tarefa"
-          autocomplete="off"
-        ></textarea>
+        <textarea id="taskDescription" name="taskDescription" placeholder="Descreva os detalhes da tarefa"
+          autocomplete="off"></textarea>
 
         <label for="status">Status da tarefa:</label>
         <select name="status" id="status">
@@ -41,13 +33,11 @@
 
         <label for="category">Categoria da tarefa:</label>
         <select name="category" id="category">
-          <option value="Acessibilidade Digital">Acessibilidade Digital</option>
-          <option value="Adaptacao de Ambiente Fisica">Adaptação de Ambiente Física</option>
-          <option value="Capacitacao de Equipes">Capacitação de Equipes</option>
-          <option value="Comunicacao Inclusiva">Comunicação Inclusiva</option>
-          <option value="Inclusao na Empregabilidade">Inclusão na Empregabilidade</option>
-          <option value="Plataforma Interna">Plataforma Interna</option>
-          <option value="Tecnologia Assistiva">Tecnologia Assistiva</option>
+          <option value="Desenvolvimento">Desenvolvimento</option>
+          <option value="Design UX">Design UX</option>
+          <option value="Financeiro">Financeiro</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Dados">Dados</option>
         </select>
 
         <label for="priority">Prioridade da tarefa:</label>
@@ -74,4 +64,5 @@
 
   <script src="js/update_task.js"></script>
 </body>
+
 </html>

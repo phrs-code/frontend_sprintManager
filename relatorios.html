@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintManager | Relatórios</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="dashboard-page">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">✓</div>
+      <div>
+        <h2>SprintManager</h2>
+        <span>Admin Workspace</span>
+      </div>
+    </div>
+
+    <div class="admin-profile">
+      <div class="avatar">AD</div>
+      <div>
+        <strong id="userName">Admin</strong>
+        <small>admin@sprintmanager.com</small>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="./tarefas.html">Tarefas</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./relatorios.html" class="active">Relatórios</a>
+      <a href="./usuarios.html">Usuários</a>
+    </nav>
+
+    <a href="./login.html" id="logoutButton" class="logout">Sair da Sessão</a>
+  </aside>
+
+  <main class="dashboard-content">
+    <header class="topbar">
+      <div>
+        <h1>Relatórios Gerenciais</h1>
+        <p>Resumo consolidado das tarefas e produtividade da squad</p>
+      </div>
+
+      <div class="topbar-info">
+        <span>15/06/2026</span>
+        <strong>● Servidor ativo</strong>
+      </div>
+    </header>
+
+    <section class="metrics-grid">
+      <article class="dashboard-card">
+        <span>Total de tarefas</span>
+        <h2 id="reportTotalTasks">0</h2>
+      </article>
+
+      <article class="dashboard-card">
+        <span>Taxa de conclusão</span>
+        <h2 id="reportCompletionRate">0%</h2>
+      </article>
+
+      <article class="dashboard-card">
+        <span>Tarefas pendentes</span>
+        <h2 id="reportPendingTasks">0</h2>
+      </article>
+
+      <article class="dashboard-card">
+        <span>Tarefas concluídas</span>
+        <h2 id="reportDoneTasks">0</h2>
+      </article>
+    </section>
+
+    <section class="tasks-section report-section">
+      <div class="report-header">
+        <div>
+          <h2>Resumo do Relatório</h2>
+          <p>Indicadores calculados com base nas tarefas cadastradas no sistema.</p>
+          <p id="progressText">0% concluído</p>
+        </div>
+
+        <button class="new-task-btn" id="exportPdfBtn" type="button">
+          Exportar PDF
+        </button>
+      </div>
+
+      <div class="progress-report">
+        <div id="progressBar"></div>
+      </div>
+
+      <div class="report-summary">
+        <p><strong>Total de tarefas:</strong> <span id="summaryTotal">0</span></p>
+        <p><strong>Tarefas pendentes:</strong> <span id="summaryPending">0</span></p>
+        <p><strong>Tarefas em andamento:</strong> <span id="summaryProgress">0</span></p>
+        <p><strong>Tarefas concluídas:</strong> <span id="summaryDone">0</span></p>
+        <p><strong>Categoria mais usada:</strong> <span id="summaryCategory">-</span></p>
+        <p><strong>Prioridade mais usada:</strong> <span id="summaryPriority">-</span></p>
+        <p><strong>Data de geração:</strong> <span id="generatedAt">-</span></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/relatorios.js"></script>
+</body>
+</html>
