@@ -51,23 +51,23 @@
 
     <section class="metrics-grid">
       <article class="dashboard-card">
-        <span>Total de tarefas</span>
-        <h2 id="dashboardTotalTasks">0</h2>
+        <span>Taxa de conclusão</span>
+        <h2 id="completionRate">0%</h2>
       </article>
 
       <article class="dashboard-card">
-        <span>Pendentes</span>
-        <h2 id="dashboardPendingTasks">0</h2>
+        <span>Tempo médio</span>
+        <h2 id="averageCompletionTime">-</h2>
       </article>
 
       <article class="dashboard-card">
-        <span>Em andamento</span>
-        <h2 id="dashboardProgressTasks">0</h2>
+        <span>Categorias concluídas</span>
+        <h2 id="completedCategoriesCount">0</h2>
       </article>
 
       <article class="dashboard-card">
-        <span>Concluídas</span>
-        <h2 id="dashboardDoneTasks">0</h2>
+        <span>Prioridade mais concluída</span>
+        <h2 id="topCompletedPriority">-</h2>
       </article>
     </section>
 
@@ -78,20 +78,21 @@
       </article>
 
       <article class="tasks-section">
-        <h2>Tarefas por Categoria</h2>
+        <h2>Categorias mais concluídas</h2>
         <canvas id="categoryChart"></canvas>
       </article>
 
       <article class="tasks-section">
-        <h2>Tarefas por Prioridade</h2>
+        <h2>Conclusões por Prioridade</h2>
         <canvas id="priorityChart"></canvas>
       </article>
 
       <article class="tasks-section">
-        <h2>Percentual Concluído</h2>
+        <h2>Insight Geral</h2>
         <div class="percent-card">
-          <strong id="completionPercent">0%</strong>
+          <strong id="completedInsight">0%</strong>
           <p>das tarefas foram concluídas</p>
+          <small id="mainInsightText">Aguardando dados do sistema...</small>
         </div>
       </article>
     </section>
