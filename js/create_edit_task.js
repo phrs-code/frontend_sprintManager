@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const createForm = document.getElementById("createEditTaskForm");
-    // Aviso: O clearButton não existe no seu HTML, o ID lá está como cancelButton.
-    // Se quiser limpar o form, talvez precise ajustar o ID no HTML ou aqui.
     const clearButton = document.getElementById("cancelButton"); 
     const errorMessageElement = document.getElementById('error-message');
 
@@ -14,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const API_URL = "http://localhost:5000";
 
-    // NOVO: Pega a data de hoje no formato YYYY-MM-DD e define como mínimo
     const hoje = new Date().toISOString().split('T')[0];
     deadlineSelect.setAttribute('min', hoje);
 
@@ -42,13 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
             deadline: deadlineSelect.value,
         };
 
-        // NOVO: Adicionei o taskData.deadline na verificação de campos vazios
         if (!taskData.title || !taskData.description || !taskData.status || !taskData.category || !taskData.priority || !taskData.deadline) {
             showMessage("Preencha todos os campos.");
             return;
         }
 
-        // NOVO: Validação para impedir datas no passado no envio do formulário
         const dataSelecionada = new Date(taskData.deadline);
         const dataAtual = new Date(hoje);
         
